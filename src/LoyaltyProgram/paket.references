@@ -1,0 +1,4 @@
+Microsoft.AspNetCore.Hosting
+Microsoft.AspNetCore.Owin
+Microsoft.AspNetCore.Server.Kestrel
+Nancy
