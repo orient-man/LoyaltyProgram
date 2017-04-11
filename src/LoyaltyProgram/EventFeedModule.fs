@@ -11,6 +11,6 @@ type EventsFeedModule(eventStore: IEventStore) as this =
 
     do
         this.Get("/", fun _ ->
-            let first = this.Request.Query?start.Value |> tryParse |> defaultArg <| 0L
-            let last = this.Request.Query?``end``.Value |> tryParse |> defaultArg <| 50L
+            let first = this.Request.Query?start |> Option.bind tryParse |> defaultArg <| 0L
+            let last = this.Request.Query?``end`` |> Option.bind tryParse |> defaultArg <| 50L
             eventStore.GetEvents(first, last))
